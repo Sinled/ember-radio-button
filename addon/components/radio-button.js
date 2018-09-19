@@ -42,7 +42,9 @@ export default Component.extend({
 
   actions: {
     changed(newValue) {
-      this.sendAction('changed', newValue);
+      if (this.get('changed')) {
+        this.get('changed')(newValue);
+      }
     }
   }
 });
